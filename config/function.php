@@ -11,13 +11,13 @@ function validate($inputData){
 
 
 }
+
 //Redirect from 1 page to another page
 function redirect($url, $status){
 
     $_SESSION['status'] = $status;
     header('Location: '.$url);
     exit(0);
-
 
 }
 

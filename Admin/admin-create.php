@@ -28,7 +28,7 @@
                  <div class="col-md-6 mb-3">
 
                     <label for="">Password *</label>
-                    <input type="password" name="passwword"required class="form-control" />
+                    <input type="password" name="password"required class="form-control" />
                  </div>
                  <div class="row">
                  <div class="col-md-6 mb-3">
