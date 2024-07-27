@@ -15,13 +15,12 @@
                <form action="code.php" method="post">
 
                 <?php 
-                    if(isset($_POST['id']))
+                    if(isset($_GET['id']))
                 
                     {
-                        echo $_GET['id'];
                         if($_GET['id'] !=''){
 
-                            $adminID =  $_GET['id'];
+                            $adminId =  $_GET['id'];
                         }else{
                             echo '<h5>NO ID FOUND</h5>';
                             return false;
@@ -39,9 +38,13 @@
                             if($adminData['status'] == 200)
                             {
                                 ?>
-                  <input type="text" name="adminId" value="<? $adminData['data']['id'] ?>" >         
-                 <div class="row">
-                 <div class="col-md-12 mb-3">
+
+                  
+                                <input type="hidden" name="adminId" value="<?= $adminData['data']['id']; ?>" >         
+                 
+                                <div class="row">
+                 
+                                <div class="col-md-12 mb-3">
 
                     <label for="">Name *</label>
                     <input type="text" name="name"required value="<?=$adminData['data']['name'];?>" class="form-control" />
@@ -73,7 +76,7 @@
                  </div>
                  <div class="row">
                  <div class="col-md-12 mb-3 text-end">
-                    <button type="submit" name="updateAdmin" class="btn btn-primary">Save</button>
+                    <button type="submit" name="updateAdmin" class="btn btn-primary">Update</button>
 
                  
                  </div>
@@ -88,6 +91,7 @@
                     }
                     else{
                         echo 'Something went wrong';
+                        return false;
                     }
                 ?>
 
