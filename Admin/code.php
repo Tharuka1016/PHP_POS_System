@@ -49,14 +49,15 @@ if(isset($_POST['updateAdmin'])){
 
     }
 
-    $password = validate($_POST['password'],);
+    
     $name = validate($_POST['name']);
     $email = validate($_POST['email']);
+    $password = validate($_POST['password'],);
     $phone = validate($_POST['phone']);
     $is_ban = validate($_POST['is_ban']) == true? 1:0; 
 
     $EmailCheckQuery = "SELECT * FROM admins WHERE email = '$email' AND id!='$adminId'";
-    $checkResult = mysqli_query($conn, $emailCheckQuery);
+    $checkResult = mysqli_query($conn, $EmailCheckQuery);
     if($checkResult){
         if(mysqli_num_rows($checkResult) > 0){
             redirect('admins-edit.php?id='.$adminId,'Email already used by another user');
@@ -83,15 +84,43 @@ if(isset($_POST['updateAdmin'])){
             $resalt = update('admins', $adminId, $data);
             if($resalt){
                 redirect('admins-edit.php?id='.$adminId,'Admin updated successfully');
-            }else{
+            }else
+            {
                 redirect('admins-edit.php?id='.$adminId,'Something went wrong');
             }
 
         
     }
-}else{
+    else
+    {
     redirect('admins-create.php','Please fill required fields');
+    }
+
 }
+
+    if(isset($_POST['saveCategory']))
+    {
+        $name = validate($_post['name']);
+        $description = validate($_post['description']);
+        $status = isset($_post['status']) == true ? 1:0;
+    
+        $data =[
+            'name' =>$name,
+            'description' =>$description,
+            'status' =>$status,
+            
+        ];
+        $resalt = insert('categories', $data);
+        if($resalt){
+            redirect('categories.php','Category added successfully');
+        }else{
+            redirect('categories-create.php','Something went wrong');
+        }
+    
+    
+    
+    }
+    
 
 
 ?>

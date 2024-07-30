@@ -31,7 +31,9 @@ if(isset($_SESSION['loggedIn'])){
                         <input type="password" name="password" class="form-control" required/>
                     </div>
                     <div class="my-3">
-                        <button type="submit" name="loginBtn" class="btn btn-primary w-100 mt-2">Sign In</button>
+                        <button type="submit" name="loginBtn" class="btn btn-primary w-100 mt-2">
+                            Sign In
+                        </button>
 
 
 </div>

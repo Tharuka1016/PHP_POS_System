@@ -37,6 +37,16 @@
                                     <td><?= $adminItem['name'] ?> </td>
                                     <td><?= $adminItem['email'] ?> </td>
                                     <td>
+                                        <?php
+                                        if($adminItem['is_ban'] == 1)
+                                        {
+                                           echo '<span class="badge bg-danger">Banned</span>';
+                                        }else{
+                                            echo '<span class="badge bg-primary">Active</span>';
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
                                         <a href="admins-edit.php?id=<?= $adminItem['id']; ?>" class="btn btn-success btn-sm">Edit</a>
                                         <a href="admins-delete.php?id=<?= $adminItem['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                                     </td>

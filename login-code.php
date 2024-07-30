@@ -7,7 +7,7 @@ if (isset($_POST['loginBtn']))
     $email = validate($_POST['email']);
     $password = validate($_POST['password']);
 
-    if ($email!= "" && $password!= "") 
+    if ($email != '' && $password!= '') 
     {
        $query = "SELECT * FROM admins WHERE email='$email' LIMIT 1";
        $result = mysqli_query($conn, $query);
