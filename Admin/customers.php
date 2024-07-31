@@ -27,6 +27,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -57,9 +60,15 @@
                         </table>
                     </div>
             <?php
-                } else {
+                } 
+                else 
+                
+                { 
+                    
                     echo '<h4 class="mb-0">No Record found</h4>';
-                }
+                   
+                }   
+
             
             ?>
         </div>

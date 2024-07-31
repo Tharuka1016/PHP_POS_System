@@ -28,6 +28,7 @@
                                     <th>ID</th>
                                     <th>Image</th>
                                     <th>Name</th>
+                                    
                                      <th>Status</th>
                                     <th>Actions</th>
                                 </tr>

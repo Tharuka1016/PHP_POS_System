@@ -90,4 +90,39 @@ if(isset($_POST['saveProduct']))
 
 }
 
+if(isset($_POST['saveCustomer']))
+{
+    $name = validate($_POST['name']);
+    $email = validate($_POST['email']);
+    $phone = validate($_POST['phone']);
+    $status = isset($_POST['status']) ? 1:0;
+
+    if($name !='')
+    {
+        $emailCheck = mysqli_query($conn,"SELECT * FROM customers WHERE email='$email'");
+        if($emailCheck){
+            if(mysqli_num_rows($emailCheck) > 0){
+                redirect('customers.php','Email already used by another user');
+            }
+        }
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+           'status' => $status
+        ];
+        $resalt = insert('customers', $data);
+        if($resalt){
+            redirect('customers.php','Customer added successfully');
+        }else{
+            redirect('customers.php','Something went wrong');
+        }
+    }
+    else
+    {
+        redirect('customers.php','Name is required');
+        return false;
+    }
+}
+
 ?>
