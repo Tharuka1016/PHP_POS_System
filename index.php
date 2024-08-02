@@ -7,7 +7,7 @@
 
             <?php alertMessage(); ?>
 
-                <h1 class="mt-3">POS System in PHP MySql</h1>
+                <h1 class="mt-3">New Genic Computers POS System </h1>
 
                 <a href="login.php" class="btn btn-primary mt-4">Login</a>
              
